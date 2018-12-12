@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiebaSign", "TiebaSign\TiebaSign.csproj", "{A8722DD3-60FE-4979-93EB-5484D83690D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiebaSign.Test", "TiebaSign.Test\TiebaSign.Test.csproj", "{FFA858A3-B6E5-4C2C-8772-AAB6BB1B3D96}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A8722DD3-60FE-4979-93EB-5484D83690D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8722DD3-60FE-4979-93EB-5484D83690D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8722DD3-60FE-4979-93EB-5484D83690D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8722DD3-60FE-4979-93EB-5484D83690D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFA858A3-B6E5-4C2C-8772-AAB6BB1B3D96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFA858A3-B6E5-4C2C-8772-AAB6BB1B3D96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFA858A3-B6E5-4C2C-8772-AAB6BB1B3D96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFA858A3-B6E5-4C2C-8772-AAB6BB1B3D96}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6002F0AB-5675-4B43-B606-00A91534767A}
+	EndGlobalSection
+EndGlobal
