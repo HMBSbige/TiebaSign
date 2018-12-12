@@ -1,15 +1,16 @@
-﻿using System;
-
-namespace TiebaSign
+﻿namespace TiebaSign
 {
-	class Program
+	internal static class Program
 	{
-		static void Main(string[] args)
+		private static void Main(string[] args)
 		{
-
-
-			Console.WriteLine(@"END");
-			Console.ReadKey();
+			if (args.Length == 1)
+			{
+				var BDUSS = args[0];
+				var signTask = new AutoSign(BDUSS);
+				signTask.Start().Wait();
+			}
+			//Console.ReadKey();
 		}
 	}
 }

@@ -14,16 +14,16 @@ namespace TiebaSign.Test
 		{
 			const string signSuccess = @"{""user_info"":{""user_id"":449002741,""is_sign_in"":1,""user_sign_rank"":738,""sign_time"":1544549341,""cont_sign_num"":9,""total_sign_num"":1767,""cout_total_sing_num"":1767,""hun_sign_num"":77,""total_resign_num"":0,""is_org_name"":0,""sign_bonus_point"":8,""miss_sign_num"":1,""level_name"":""\u62ab\u98ce\u6597\u58eb"",""levelup_score"":18000},""contri_info"":[],""server_time"":305827,""time"":1544549341,""ctime"":0,""logid"":1741121128,""error_code"":""0""}";
 
-			var x1 = new SignReply();
+			var x1 = new SignReply(@"蝙蝠侠");
 			x1.Parse(Error);
 
-			var x2 = new SignReply();
+			var x2 = new SignReply(@"蝙蝠侠");
 			x2.Parse(signSuccess);
 
 			Console.WriteLine(x1.ToString());
-			Assert.AreEqual(@"[2018/12/11 17:35:33] Error 160002:亲，你之前已经签过了", x1.ToString());
+			Assert.AreEqual(@"[2018/12/11 17:35:33] Error 蝙蝠侠:160002:亲，你之前已经签过了", x1.ToString());
 			Console.WriteLine(x2.ToString());
-			Assert.AreEqual(@"[2018/12/12 1:29:01] Info 披风斗士:今日本吧第 738 个签到，经验 +8，漏签 1 天，连续签到 9 天", x2.ToString());
+			Assert.AreEqual(@"[2018/12/12 1:29:01] Info 蝙蝠侠:披风斗士:今日本吧第 738 个签到，经验 +8，漏签 1 天，连续签到 9 天", x2.ToString());
 		}
 
 		[TestMethod]

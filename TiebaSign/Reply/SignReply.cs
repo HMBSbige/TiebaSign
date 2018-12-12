@@ -4,15 +4,15 @@ namespace TiebaSign.Reply
 {
 	public class SignReply : ErrorReply
 	{
-		public string LevelName;
-		public DateTime SignTime;
-		public long SignBonusPoint;
-		public long UserId;
-		public long MissSignNum;
-		public long ContSignNum;
-		public long UserSignRank;
+		public string LevelName { get; private set; }
+		public DateTime SignTime { get; private set; }
+		public long SignBonusPoint { get; private set; }
+		public long UserId { get; private set; }
+		public long MissSignNum { get; private set; }
+		public long ContSignNum { get; private set; }
+		public long UserSignRank { get; private set; }
 
-		public SignReply()
+		private SignReply()
 		{
 			LevelName = string.Empty;
 			SignTime = new DateTime(1970, 1, 1);
@@ -21,6 +21,11 @@ namespace TiebaSign.Reply
 			MissSignNum = 0L;
 			ContSignNum = 0L;
 			UserSignRank = 0L;
+		}
+
+		public SignReply(string name) : this()
+		{
+			Name = name;
 		}
 
 		public override void Parse(string jsonStr)
@@ -43,7 +48,7 @@ namespace TiebaSign.Reply
 		{
 			if (ErrorCode == 0)
 			{
-				return $@"[{SignTime}] Info {LevelName}:今日本吧第 {UserSignRank} 个签到，经验 +{SignBonusPoint}，漏签 {MissSignNum} 天，连续签到 {ContSignNum} 天";
+				return $@"[{SignTime}] Info {Name}:{LevelName}:今日本吧第 {UserSignRank} 个签到，经验 +{SignBonusPoint}，漏签 {MissSignNum} 天，连续签到 {ContSignNum} 天";
 			}
 			else
 			{

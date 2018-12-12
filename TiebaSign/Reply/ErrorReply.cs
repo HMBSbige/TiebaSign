@@ -4,15 +4,21 @@ namespace TiebaSign.Reply
 {
 	public class ErrorReply
 	{
-		protected long ErrorCode;
-		public string ErrorMsg;
-		public DateTime Time;
+		public long ErrorCode { get; protected set; }
+		public string ErrorMsg { get; protected set; }
+		public DateTime Time { get; protected set; }
+		public string Name;
 
 		protected ErrorReply()
 		{
 			ErrorCode = 110001L;
 			ErrorMsg = "\u672a\u77e5\u9519\u8bef";
 			Time = new DateTime(1970, 1, 1);
+		}
+
+		protected ErrorReply(string name) : this()
+		{
+			Name = name;
 		}
 
 		public virtual void Parse(string jsonStr)
@@ -28,7 +34,11 @@ namespace TiebaSign.Reply
 
 		public override string ToString()
 		{
-			return $@"[{Time}] Error {ErrorCode}:{ErrorMsg}";
+			if (string.IsNullOrWhiteSpace(Name))
+			{
+				return $@"[{Time}] Error {ErrorCode}:{ErrorMsg}";
+			}
+			return $@"[{Time}] Error {Name}:{ErrorCode}:{ErrorMsg}";
 		}
 	}
 }
