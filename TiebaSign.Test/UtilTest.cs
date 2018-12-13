@@ -1,6 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Globalization;
+using TiebaSign.Reply;
 
 namespace TiebaSign.Test
 {
@@ -11,7 +12,7 @@ namespace TiebaSign.Test
 		public void TestTime()
 		{
 			const int i = 1544520933;
-			var time = Ntp.GetTime($@"{i}");
+			var time = Ntp.GetTime($@"{i}").ToLocalTime();
 
 			Console.WriteLine(time.ToString(CultureInfo.CurrentCulture));
 

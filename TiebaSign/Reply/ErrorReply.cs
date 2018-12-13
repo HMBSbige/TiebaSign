@@ -9,7 +9,7 @@ namespace TiebaSign.Reply
 		public DateTime Time { get; protected set; }
 		public string Name;
 
-		protected ErrorReply()
+		public ErrorReply()
 		{
 			ErrorCode = 110001L;
 			ErrorMsg = "\u672a\u77e5\u9519\u8bef";
@@ -29,7 +29,7 @@ namespace TiebaSign.Reply
 			{
 				ErrorMsg = s[@"error_msg"];
 			}
-			Time = Ntp.GetTime(Convert.ToString(s[@"time"]));
+			Time = Ntp.GetTime(Convert.ToString(s[@"time"])).ToLocalTime();
 		}
 
 		public override string ToString()

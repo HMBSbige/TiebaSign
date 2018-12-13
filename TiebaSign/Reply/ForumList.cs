@@ -60,7 +60,7 @@ namespace TiebaSign.Reply
 				}
 
 				Tbs = s[@"anti"][@"tbs"];
-				Time = Ntp.GetTime(Convert.ToString(s[@"time"]));
+				Time = Ntp.GetTime(Convert.ToString(s[@"time"])).ToLocalTime();
 			}
 		}
 

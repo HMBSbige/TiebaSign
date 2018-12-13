@@ -1,9 +1,12 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Net.Http;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using TiebaSign.Reply;
 
 namespace TiebaSign
 {
@@ -44,6 +47,14 @@ namespace TiebaSign
 			var md5Data = md5.ComputeHash(data);
 			md5.Clear();
 			return md5Data.Aggregate(string.Empty, (current, t) => current + t.ToString(@"x2").PadLeft(2, '0'));
+		}
+
+		public static double GetCountdown()
+		{
+			var jsonStr = BaiduNet.GetForum(null).Result;
+			var reply = new ErrorReply();
+			reply.Parse(jsonStr);
+			return (DateTime.Today.AddDays(1) - reply.Time).TotalMilliseconds;
 		}
 	}
 }

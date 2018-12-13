@@ -35,7 +35,7 @@ namespace TiebaSign.Reply
 			{
 				dynamic s = SimpleJson.SimpleJson.DeserializeObject(jsonStr);
 				LevelName = s[@"user_info"][@"level_name"];
-				SignTime = Ntp.GetTime(Convert.ToString(s[@"user_info"][@"sign_time"]));
+				SignTime = Ntp.GetTime(Convert.ToString(s[@"user_info"][@"sign_time"])).ToLocalTime();
 				SignBonusPoint = s[@"user_info"][@"sign_bonus_point"];
 				UserId = s[@"user_info"][@"user_id"];
 				MissSignNum = s[@"user_info"][@"miss_sign_num"];

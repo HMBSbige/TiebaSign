@@ -10,7 +10,6 @@
 				var signTask = new AutoSign(BDUSS);
 				signTask.Start().Wait();
 			}
-			//Console.ReadKey();
 		}
 	}
 }
