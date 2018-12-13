@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  tiebasign:
+    image: ${DOCKER_REGISTRY-}tiebasign
+    build:
+      context: .
+      dockerfile: TiebaSign/Dockerfile
