@@ -3,10 +3,9 @@ WORKDIR /app
 
 FROM microsoft/dotnet:2.2-sdk AS build
 WORKDIR /src
-COPY TiebaSign/TiebaSign.csproj TiebaSign/
+COPY TiebaSign.csproj TiebaSign/
 RUN dotnet restore TiebaSign/TiebaSign.csproj
 COPY . .
-WORKDIR /src/TiebaSign
 RUN dotnet build TiebaSign.csproj -c Release -o /app
 
 FROM build AS publish
