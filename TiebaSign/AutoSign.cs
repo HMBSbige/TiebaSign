@@ -91,7 +91,7 @@ namespace TiebaSign
 			{
 				await SignAll(retryTime);
 				var waitTime = Convert.ToInt32(Util.GetCountdown());
-				Console.WriteLine($@"等待 {waitTime}ms 后执行");
+				Console.WriteLine($@"等待 {Util.ParseTime(waitTime)} 后执行");
 				await Task.Delay(waitTime);
 			}
 			// ReSharper disable once FunctionNeverReturns

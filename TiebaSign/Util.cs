@@ -54,7 +54,19 @@ namespace TiebaSign
 			var jsonStr = BaiduNet.GetForum(null).Result;
 			var reply = new ErrorReply();
 			reply.Parse(jsonStr);
-			return (DateTime.Today.AddDays(1) - reply.Time).TotalMilliseconds;
+
+			var nextDay = DateTime.UtcNow.AddHours(8).Date.AddDays(1);
+			Console.WriteLine($@"下次签到时间：{nextDay.ToString(CultureInfo.CurrentCulture)}");
+
+			var now = reply.Time.ToUniversalTime().AddHours(8);
+			Console.WriteLine($@"现在时间：{now.ToString(CultureInfo.CurrentCulture)}");
+
+			return (nextDay - now).TotalMilliseconds;
+		}
+
+		public static string ParseTime(int millisecond)
+		{
+			return $@"{millisecond / 1000 / 60 / 60}:{millisecond / 1000 / 60 % 60}:{millisecond / 1000 % 60}";
 		}
 	}
 }

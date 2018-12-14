@@ -1,7 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Globalization;
-using TiebaSign.Reply;
 
 namespace TiebaSign.Test
 {
@@ -35,6 +34,13 @@ namespace TiebaSign.Test
 			Assert.AreEqual(Util.Md5(t2), a2);
 			Assert.AreEqual(Util.Md5(t3), a3);
 			Assert.AreEqual(Util.Md5(t4), a4);
+		}
+
+		[TestMethod]
+		public void GetCountdownTest()
+		{
+			var waitTime = Convert.ToInt32(Util.GetCountdown());
+			Console.WriteLine(Util.ParseTime(waitTime));
 		}
 	}
 }
